@@ -90,4 +90,15 @@
         android:text="Redo"
         android:visibility="invisible" />
 
+    <TextView
+        android:id="@+id/brushSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/seekBar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="175dp"
+        android:layout_marginBottom="21dp"
+        android:text="BRUSH SIZE"
+        android:visibility="invisible" />
+
 </RelativeLayout>

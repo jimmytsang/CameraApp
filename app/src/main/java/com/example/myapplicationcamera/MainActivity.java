@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     int TAKE_PHOTO_CODE = 1;
     public static int count = 0;
+    public boolean isErasemode = false;
     ImageView imageView;
     RelativeLayout layout;
     SeekBar seekBar;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     Button undo;
     Button redo;
     Button capture;
+    TextView brushSize;
 
     Bitmap bmp;
     Bitmap alteredBitmap;
@@ -86,6 +88,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mTextMessage = (TextView) findViewById(R.id.message);
+
+        brushSize = findViewById(R.id.brushSize);
+
         layout = (RelativeLayout) findViewById(R.id.container);
         imageView = (ImageView) findViewById(R.id.imageView);
         drawingView = new DrawingView(this);
@@ -100,6 +105,13 @@ public class MainActivity extends AppCompatActivity {
         erase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (isErasemode) {
+                    isErasemode = false;
+                    erase.setText("ERASE");
+                } else {
+                    isErasemode = true;
+                    erase.setText("DRAW");
+                }
                 drawingView.onEraser();
             }
         });
@@ -183,6 +195,7 @@ public class MainActivity extends AppCompatActivity {
             layout.addView(drawingView);
             seekBar.setVisibility(View.VISIBLE);
             erase.setVisibility(View.VISIBLE);
+            brushSize.setVisibility(View.VISIBLE);
             undo.setVisibility(View.VISIBLE);
             redo.setVisibility(View.VISIBLE);
             capture.setVisibility(View.INVISIBLE);

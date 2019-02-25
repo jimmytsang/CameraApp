@@ -153,7 +153,7 @@ public class DrawingView extends View {
     }
 
     public void setWidth(float width) {
-        this.width = width;
+        this.width = width * 4;
     }
 
 
